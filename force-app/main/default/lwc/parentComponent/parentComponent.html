@@ -1,3 +1,24 @@
 <template>
-    
+   <lightning-input 
+      name="Text" 
+      value={textString} 
+      label="Enter-text" 
+      class="slds-var-m-bottom_xx-small"
+      onchange={handleChange}
+   ></lightning-input>
+   <lightning-button label="Add" variant="Neutral" onclick={addInputToList}></lightning-button>
+
+   <template if:true={input}>
+      <div class="slds-text-heading_large">
+         you have selected:{input}
+      </div>
+   </template>
+
+   <template if:true={list}>
+      <template for:each={list} for:item="item">
+         <lightning-layout-item key={item.name}>
+            <c-child-component ></c-child-component>
+         </lightning-layout-item>
+      </template>
+   </template>
 </template>
