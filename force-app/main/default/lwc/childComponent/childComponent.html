@@ -1,8 +1,13 @@
 <template>
-   <lightning-button 
-      label={inputItem} 
-      class="slds-var-m-right_x-small" 
-      icon-name="utility:event"
-      onclick={fireSelectEvent}
-   ></lightning-button>
+   <lightning-layout vertical-align="center">
+      <lightning-layout-item>
+         <lightning-button 
+            label={inputItem.Value} 
+            value={inputItem.Key}
+            class="slds-var-m-right_x-small" 
+            icon-name="utility:event"
+            onclick={fireSelectEvent}
+         ></lightning-button>
+      </lightning-layout-item>
+   </lightning-layout>
 </template>

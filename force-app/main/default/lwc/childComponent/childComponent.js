@@ -1,13 +1,19 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 
 export default class ChildComponent extends LightningElement {
-   inputItem=null
+   @api inputItem=null
 
    inputitemselect() {
       // propagate event to parent
+      console.log('inputitemselect fired');
    }
 
-   fireSelectEvent() {
-      
+   fireSelectEvent(event) {
+      console.log('fireSelectEvent fired');
+      //console.log(this.inputItem.Key);
+      //this.dispatchEvent(new CustomEvent(this.inputItem.Key));
+      console.log('Key is: ' + this.inputItem.Key);
+      const selectedEvent = new CustomEvent('selected', { detail: this.inputItem.Key});
+      this.dispatchEvent(selectedEvent);
    }
 }

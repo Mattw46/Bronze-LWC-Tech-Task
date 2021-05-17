@@ -4,21 +4,28 @@
       value={textString} 
       label="Enter-text" 
       class="slds-var-m-bottom_xx-small"
-      onchange={handleChange}
+      
    ></lightning-input>
    <lightning-button label="Add" variant="Neutral" onclick={addInputToList}></lightning-button>
 
-   <template if:true={input}>
+   
+
+   <template if:true={newInput}>
+      <!--<div class="slds-scrollable_y">
+         <lightning-layout class="slds-m-around_medium" horizontal-align="center" multiple-rows>-->
+             <template for:each={list} for:item="item">
+                 <lightning-layout-item key={item.Key} padding="around-small" size="12" small-device-size="6"
+                     medium-device-size="4" large-device-size="3" class="tile">
+                     <c-child-component  input-item={item} onselected={handleSelect}></c-child-component>
+                 </lightning-layout-item>
+             </template>
+         <!--</lightning-layout>
+     </div>-->
+   </template>
+
+   <template if:true={selected}>
       <div class="slds-text-heading_large">
          you have selected:{input}
       </div>
-   </template>
-
-   <template if:true={list}>
-      <template for:each={list} for:item="item">
-         <lightning-layout-item key={item.name}>
-            <c-child-component ></c-child-component>
-         </lightning-layout-item>
-      </template>
    </template>
 </template>
