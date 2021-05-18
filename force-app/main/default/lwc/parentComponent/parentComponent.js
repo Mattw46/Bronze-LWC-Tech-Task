@@ -15,8 +15,5 @@ export default class ParentComponent extends LightningElement {
       this.input = event.detail;
       this.selected = true;
    }
+
 }
-
-// https://www.sfdcblogs.com/post/how-to-fetch-inputs-in-lightning-web-components
-
-// https://developer.salesforce.com/docs/component-library/documentation/en/lwc/events
